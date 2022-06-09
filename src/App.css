@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 20px;
+
+  background-color: blanchedalmond;
+}
+
+.app__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 40px;
+  padding: 10px;
+}
