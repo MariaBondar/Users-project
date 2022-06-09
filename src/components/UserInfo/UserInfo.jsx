@@ -9,13 +9,11 @@ export const UserInfo = ({ user }) => {
     const current = await getCurrentUser(user.login);
 
     setCurrentUser(current);
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     getUser();
-  }, []);
-
-  console.log(currentUser)
+  }, [user.login]);
 
   return (
    <div className='userInfo'>
@@ -26,10 +24,10 @@ export const UserInfo = ({ user }) => {
         <p>{`Followers: ${currentUser.followers}`}</p>
         <p>{`Following: ${currentUser.following}`}</p>
         <p>{`Created_at: ${currentUser.created_at}`}</p>
-        <p>{`Company: ${currentUser.company}`}</p>
+        <p>{currentUser.company ? `Company: ${currentUser.company}` : `Company: -/-`}</p>
         <p>{currentUser.email ? `Email: ${currentUser.email}` : `Email: -/-`}</p>
         <p>{currentUser.location ? `Location: ${currentUser.location}` : `Location: -/-`}</p>
-        <p>{`Blog: ${currentUser.blog}`}</p>
+        <p>{currentUser.blog ? `Blog: ${currentUser.blog}` : `Blog: -/-`}</p>
         <p>{currentUser.bio ? `Bio: ${currentUser.bio}` : `Bio: -/-`}</p>
       </div>
     )}

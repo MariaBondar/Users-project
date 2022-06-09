@@ -6,18 +6,19 @@ import './UsersList.css';
 
 export const UsersList = () => {
   const [users, setUsers] = useState([]);
+  const [count, setCount] = useState(10);
   const { userLogin } = useParams();
   const activeUser = users.find(user => user.login === userLogin);
 
   const getData = useCallback(async () => {
-    const allUsers = await getUsers();
+    const allUsers = await getUsers(count);
 
     setUsers(allUsers);
-  }, []);
+  }, [count]);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [count]);
 
   return (
     <div>
@@ -41,6 +42,12 @@ export const UsersList = () => {
               </li>
             ))
           }
+          <button
+            className='list__button'
+            onClick={() => setCount((current) => current + 10)}
+          >
+            Show more
+          </button>
         </ul>
       )}
 

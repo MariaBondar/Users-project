@@ -1,7 +1,7 @@
 const API_URL = `https://api.github.com/users`;
 
-export const getUsers = async () => {
-  const response = await fetch(API_URL);
+export const getUsers = async (count) => {
+  const response = await fetch(`${API_URL}?per_page=${count}`);
 
   return response.json();
 };

@@ -32,6 +32,18 @@
   padding: 15px;
 }
 
+.list__button {
+  width: 140px;
+  height: 40px;
+  background-color: #556B2F;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.list__button:hover {
+  background-color: burlywood;
+}
+
 .image__avatar {
   width: 100px;
   height: 100px;
